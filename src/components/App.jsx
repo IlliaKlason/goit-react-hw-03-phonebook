@@ -26,13 +26,11 @@ export class App extends Component {
       this.setState({ contacts: contactsList });
     }
   }
-
   componentDidUpdate(prevState) {
     if (this.state.contacts !== prevState) {
       localStorage.setItem('ContactsList', JSON.stringify(this.state.contacts));
     }
   }
-  
   addContact = ({ name, number }) => {
     const normalizedName = name.toLowerCase();
 
@@ -71,7 +69,6 @@ export class App extends Component {
       contacts: prevState.contacts.filter(contact => contact.id !== id),
     }));
   };
- 
   render() {
     const contactsToShow = this.getFilteredContacts();
 
